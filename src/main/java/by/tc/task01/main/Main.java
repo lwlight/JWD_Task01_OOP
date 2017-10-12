@@ -127,7 +127,7 @@ public class Main {
 
 		Criteria<Laptop> criteriaLaptop = new Criteria<>();
 		criteriaLaptop.setApplianceType("Laptop");
-		criteriaLaptop.add(Laptop.OS, "linux");
+		criteriaLaptop.add(null, null);
 		criteriaLaptop.add(Laptop.CPU, 2.2);
 
 		appliance = service.find(criteriaLaptop);

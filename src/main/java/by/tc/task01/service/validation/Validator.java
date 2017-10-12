@@ -13,32 +13,36 @@ public class Validator {
 		if (criteria == null){
 			return false;
 		}
-
+		Map<E, Object> criteriaMap = criteria.getCriteria();
+		for(Map.Entry<E, Object> pair : criteriaMap.entrySet()){
+			if(pair.getKey() == null || pair.getValue() == null){
+				return false;
+			}
+		}
 		String applianceType = criteria.getApplianceType();
 
 		if (applianceType.equals("Oven")) {
-			return checkOven(criteria);
+			return checkOven(criteriaMap);
 		}
 		if (applianceType.equals("Laptop")) {
-			return checkLaptop(criteria);
+			return checkLaptop(criteriaMap);
 		}
 		if (applianceType.equals("Refrigerator")) {
-			return checkRefrigerator(criteria);
+			return checkRefrigerator(criteriaMap);
 		}
 		if (applianceType.equals("VacuumCleaner")) {
-			return checkVacuumCleaner(criteria);
+			return checkVacuumCleaner(criteriaMap);
 		}
 		if (applianceType.equals("TabletPC")) {
-			return checkTabletPC(criteria);
+			return checkTabletPC(criteriaMap);
 		}
 		if (applianceType.equals("Speakers")) {
-			return checkSpeakers(criteria);
+			return checkSpeakers(criteriaMap);
 		}
 		return false;
 	}
 
-	private static <E> boolean checkOven(Criteria<E> criteria){
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkOven(Map<E, Object> criteriaMap){
 		if (criteriaMap.containsKey(SearchCriteria.Oven.POWER_CONSUMPTION)){
 			try{
 				Double.parseDouble(criteriaMap.get(SearchCriteria.Oven.POWER_CONSUMPTION).toString());
@@ -85,8 +89,7 @@ public class Validator {
 		return true;
 	}
 
-	private static <E> boolean checkLaptop(Criteria<E> criteria){
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkLaptop(Map<E, Object> criteriaMap){
 		if (criteriaMap.containsKey(SearchCriteria.Laptop.BATTERY_CAPACITY)){
 			try{
 				Double.parseDouble(criteriaMap.get(SearchCriteria.Laptop.BATTERY_CAPACITY).toString());
@@ -130,8 +133,7 @@ public class Validator {
 		return true;
 	}
 
-	private static <E> boolean checkRefrigerator(Criteria<E> criteria){
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkRefrigerator(Map<E, Object> criteriaMap){
 		if (criteriaMap.containsKey(SearchCriteria.Refrigerator.POWER_CONSUMPTION)){
 			try{
 				Double.parseDouble(criteriaMap.get(SearchCriteria.Refrigerator.POWER_CONSUMPTION).toString());
@@ -177,8 +179,7 @@ public class Validator {
 		return true;
 	}
 
-	private static <E> boolean checkVacuumCleaner(Criteria<E> criteria){
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkVacuumCleaner(Map<E, Object> criteriaMap){
 		if (criteriaMap.containsKey(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION)){
 			try{
 				Double.parseDouble(criteriaMap.get(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION).toString());
@@ -218,8 +219,7 @@ public class Validator {
 		return true;
 	}
 
-	private static <E> boolean checkTabletPC(Criteria<E> criteria) {
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkTabletPC(Map<E, Object> criteriaMap) {
 		if (criteriaMap.containsKey(SearchCriteria.TabletPC.BATTERY_CAPACITY)) {
 			try {
 				Double.parseDouble(criteriaMap.get(SearchCriteria.TabletPC.BATTERY_CAPACITY).toString());
@@ -256,8 +256,7 @@ public class Validator {
 		return true;
 	}
 
-	private static <E> boolean checkSpeakers(Criteria<E> criteria) {
-		Map<E, Object> criteriaMap = criteria.getCriteria();
+	private static <E> boolean checkSpeakers(Map<E, Object> criteriaMap) {
 		if (criteriaMap.containsKey(SearchCriteria.Speakers.POWER_CONSUMPTION)) {
 			try {
 				Double.parseDouble(criteriaMap.get(SearchCriteria.Speakers.POWER_CONSUMPTION).toString());
