@@ -61,7 +61,6 @@ public class Validator {
 			try{
 				Double.parseDouble(criteriaMap.get(SearchCriteria.Oven.CAPACITY).toString());
 			} catch (NumberFormatException e){
-				System.out.println("double");
 				return false;
 			}
 		}
