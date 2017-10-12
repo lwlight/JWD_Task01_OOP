@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class ApplianceDAOImpl implements ApplianceDAO{
 
+	@Override
 	public <E> Appliance find(Criteria<E> criteria) {
 		// you may add your own code here
 		List<String> criteaList = getCriteriaList(criteria);
