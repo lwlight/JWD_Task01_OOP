@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Refrigerator extends Appliance{
+import java.io.Serializable;
+
+public class Refrigerator extends Appliance implements Serializable{
 	// you may add your own code here
     private String name = "Refrigerator";
     private double powerConsumption;
@@ -58,6 +60,18 @@ public class Refrigerator extends Appliance{
         temp = Double.doubleToLongBits(width);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public Refrigerator clone() throws CloneNotSupportedException {
+        Refrigerator clonedRefrigerator = new Refrigerator();
+        clonedRefrigerator.setPowerConsumption(this.powerConsumption);
+        clonedRefrigerator.setWeight(this.weight);
+        clonedRefrigerator.setFreezerCapacity(this.freezerCapacity);
+        clonedRefrigerator.setOverallCapacity(this.overallCapacity);
+        clonedRefrigerator.setHeight(this.height);
+        clonedRefrigerator.setWidth(this.width);
+        return clonedRefrigerator;
     }
 
     public String getName() {

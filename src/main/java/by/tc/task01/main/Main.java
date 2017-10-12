@@ -133,7 +133,6 @@ public class Main {
 		appliance = service.find(criteriaLaptop);
 
 		PrintApplianceInfo.print(appliance);
-
 	}
 
 }

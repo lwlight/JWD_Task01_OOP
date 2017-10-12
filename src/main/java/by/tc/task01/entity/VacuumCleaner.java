@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class VacuumCleaner extends Appliance{
+import java.io.Serializable;
+
+public class VacuumCleaner extends Appliance implements Serializable{
 	// you may add your own code here
     private String name = "VacuumCleaner";
     private double powerConsumption;
@@ -56,6 +58,18 @@ public class VacuumCleaner extends Appliance{
         temp = Double.doubleToLongBits(cleaningWidth);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public VacuumCleaner clone() throws CloneNotSupportedException {
+        VacuumCleaner clonedVacuumCleaner = new VacuumCleaner();
+        clonedVacuumCleaner.setPowerConsumption(this.powerConsumption);
+        clonedVacuumCleaner.setFilterType(this.filterType);
+        clonedVacuumCleaner.setBagType(this.bagType);
+        clonedVacuumCleaner.setWandType(this.wandType);
+        clonedVacuumCleaner.setMotorSpeedRegulation(this.motorSpeedRegulation);
+        clonedVacuumCleaner.setCleaningWidth(this.cleaningWidth);
+        return clonedVacuumCleaner;
     }
 
     public String getName() {

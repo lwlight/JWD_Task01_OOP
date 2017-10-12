@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Speakers extends Appliance{
+import java.io.Serializable;
+
+public class Speakers extends Appliance implements Serializable{
 	// you may add your own code here
     private String name = "Skeakers";
     private double powerConsumption;
@@ -48,6 +50,16 @@ public class Speakers extends Appliance{
         temp = Double.doubleToLongBits(cordLength);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public Speakers clone() throws CloneNotSupportedException {
+        Speakers clonedSpeakers = new Speakers();
+        clonedSpeakers.setPowerConsumption(this.powerConsumption);
+        clonedSpeakers.setNumberOfSpeakers(this.numberOfSpeakers);
+        clonedSpeakers.setFrequencyRange(this.frequencyRange);
+        clonedSpeakers.setCordLength(this.cordLength);
+        return clonedSpeakers;
     }
 
     public String getName() {

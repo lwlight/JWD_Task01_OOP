@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class TabletPC extends Appliance{
+import java.io.Serializable;
+
+public class TabletPC extends Appliance implements Serializable{
 	// you may add your own code here
     private String name = "TabletPC";
     private double batteryCapacity;
@@ -53,6 +55,17 @@ public class TabletPC extends Appliance{
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + color.hashCode();
         return result;
+    }
+
+    @Override
+    public TabletPC clone() throws CloneNotSupportedException {
+        TabletPC clonedTabletPC = new TabletPC();
+        clonedTabletPC.setBatteryCapacity(this.batteryCapacity);
+        clonedTabletPC.setDisplayInches(this.displayInches);
+        clonedTabletPC.setMemoryROM(this.memoryROM);
+        clonedTabletPC.setFlashMemoryCapacity(this.flashMemoryCapacity);
+        clonedTabletPC.setColor(this.color);
+        return clonedTabletPC;
     }
 
     public String getName() {

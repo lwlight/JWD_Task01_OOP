@@ -1,6 +1,8 @@
 package by.tc.task01.entity;
 
-public class Laptop extends Appliance{
+import java.io.Serializable;
+
+public class Laptop extends Appliance implements Serializable{
 	// you may add your own code here
     private String name = "Laptop";
     private double batteryCapacity;
@@ -58,6 +60,18 @@ public class Laptop extends Appliance{
         temp = Double.doubleToLongBits(displayInchs);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Override
+    public Laptop clone() throws CloneNotSupportedException {
+        Laptop clonedLaptop = new Laptop();
+        clonedLaptop.setBatteryCapacity(this.batteryCapacity);
+        clonedLaptop.setOs(this.os);
+        clonedLaptop.setMemoryROM(this.memoryROM);
+        clonedLaptop.setSystemMemory(this.systemMemory);
+        clonedLaptop.setCpu(this.cpu);
+        clonedLaptop.setDisplayInchs(this.displayInchs);
+        return clonedLaptop;
     }
 
     public String getName() {
