@@ -62,18 +62,6 @@ public class Laptop extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public Laptop clone() throws CloneNotSupportedException {
-        Laptop clonedLaptop = new Laptop();
-        clonedLaptop.setBatteryCapacity(this.batteryCapacity);
-        clonedLaptop.setOs(this.os);
-        clonedLaptop.setMemoryROM(this.memoryROM);
-        clonedLaptop.setSystemMemory(this.systemMemory);
-        clonedLaptop.setCpu(this.cpu);
-        clonedLaptop.setDisplayInchs(this.displayInchs);
-        return clonedLaptop;
-    }
-
     public String getName() {
         return name;
     }

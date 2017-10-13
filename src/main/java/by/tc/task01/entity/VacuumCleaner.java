@@ -60,18 +60,6 @@ public class VacuumCleaner extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public VacuumCleaner clone() throws CloneNotSupportedException {
-        VacuumCleaner clonedVacuumCleaner = new VacuumCleaner();
-        clonedVacuumCleaner.setPowerConsumption(this.powerConsumption);
-        clonedVacuumCleaner.setFilterType(this.filterType);
-        clonedVacuumCleaner.setBagType(this.bagType);
-        clonedVacuumCleaner.setWandType(this.wandType);
-        clonedVacuumCleaner.setMotorSpeedRegulation(this.motorSpeedRegulation);
-        clonedVacuumCleaner.setCleaningWidth(this.cleaningWidth);
-        return clonedVacuumCleaner;
-    }
-
     public String getName() {
         return name;
     }

@@ -57,17 +57,6 @@ public class TabletPC extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public TabletPC clone() throws CloneNotSupportedException {
-        TabletPC clonedTabletPC = new TabletPC();
-        clonedTabletPC.setBatteryCapacity(this.batteryCapacity);
-        clonedTabletPC.setDisplayInches(this.displayInches);
-        clonedTabletPC.setMemoryROM(this.memoryROM);
-        clonedTabletPC.setFlashMemoryCapacity(this.flashMemoryCapacity);
-        clonedTabletPC.setColor(this.color);
-        return clonedTabletPC;
-    }
-
     public String getName() {
         return name;
     }

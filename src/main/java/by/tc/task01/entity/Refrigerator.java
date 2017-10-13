@@ -62,18 +62,6 @@ public class Refrigerator extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public Refrigerator clone() throws CloneNotSupportedException {
-        Refrigerator clonedRefrigerator = new Refrigerator();
-        clonedRefrigerator.setPowerConsumption(this.powerConsumption);
-        clonedRefrigerator.setWeight(this.weight);
-        clonedRefrigerator.setFreezerCapacity(this.freezerCapacity);
-        clonedRefrigerator.setOverallCapacity(this.overallCapacity);
-        clonedRefrigerator.setHeight(this.height);
-        clonedRefrigerator.setWidth(this.width);
-        return clonedRefrigerator;
-    }
-
     public String getName() {
         return name;
     }

@@ -52,16 +52,6 @@ public class Speakers extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public Speakers clone() throws CloneNotSupportedException {
-        Speakers clonedSpeakers = new Speakers();
-        clonedSpeakers.setPowerConsumption(this.powerConsumption);
-        clonedSpeakers.setNumberOfSpeakers(this.numberOfSpeakers);
-        clonedSpeakers.setFrequencyRange(this.frequencyRange);
-        clonedSpeakers.setCordLength(this.cordLength);
-        return clonedSpeakers;
-    }
-
     public String getName() {
         return name;
     }

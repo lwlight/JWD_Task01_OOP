@@ -63,18 +63,6 @@ public class Oven extends Appliance implements Serializable{
         return result;
     }
 
-    @Override
-    public Oven clone() throws CloneNotSupportedException {
-        Oven clonedOven = new Oven();
-        clonedOven.setPowerConsumption(this.powerConsumption);
-        clonedOven.setWeight(this.weight);
-        clonedOven.setCapacity(this.capacity);
-        clonedOven.setDepth(this.depth);
-        clonedOven.setHeight(this.height);
-        clonedOven.setWidth(this.width);
-        return clonedOven;
-    }
-
     public String getName() {
         return name;
     }
